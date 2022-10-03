@@ -1,0 +1,26 @@
+- name: update WEB servers
+  hosts: WEB
+
+  tasks:
+   - name: Ensure dir Work-1 is created
+     file:
+       path: /home/ec2-user/Work-1
+       state: directory
+
+- name: update APP servers
+  hosts: APPLICATION
+
+  tasks:
+   - name: Download URL
+     get_url:
+       dest: /home/ec2-user/
+       url: https://filesamples.com/samples/document/txt/sample3.txt
+
+- name: update DB servers
+  hosts: DATABASE
+
+  tasks:
+   - name: create hello.txt
+     copy:
+       dest: /home/ec2-user/hello1.txt
+       content: This-is-my-first-ansible-multitask-playbook

@@ -1,0 +1,8 @@
+- name: update web severs
+  hosts: WEB
+
+  tasks:
+   - name: Ensure dir W1 is created
+     file:
+       path: /home/ec2-user/W1
+       state: directory  

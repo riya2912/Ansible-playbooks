@@ -1,0 +1,9 @@
+- name: update all severs
+  hosts: all
+  become: yes
+
+  tasks:
+   - name: restarted httpd service
+     service:
+       name: httpd
+       state: restarted

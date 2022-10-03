@@ -1,0 +1,9 @@
+- name: update all severs
+  hosts: all
+  become: yes
+
+  tasks:
+   - name: Ensure configuration is updated
+     copy:
+       src: /home/ec2-user/playbook/httpd.conf
+       dest: /etc/httpd/conf/httpd.conf
